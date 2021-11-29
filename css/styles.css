@@ -160,3 +160,25 @@ a {
     padding-left: 0;
   }
 }
+
+/* Icons */
+/* Pixel (absolute units) units are being used as icons are always the same size regardless of whether it is being viewed on phones or larger screens */
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.icon--primary {
+  fill: var(--primary-color);
+}
+
+.icon-container {
+  background: #f4f9f8;
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
