@@ -117,7 +117,7 @@ a {
   color: white;
 }
 
-.bade--small {
+.badge--small {
   font-size: 1.6rem;
 }
 
@@ -126,7 +126,37 @@ a {
     font-size: 1.5rem;
   }
 
-  .bade--small {
+  .badge--small {
     font-size: 1.2rem;
+  }
+}
+
+/* Lists */
+
+.list {
+  list-style: none;
+  padding-left: 0; /* All browsers apply a default padding to the left, we remove it by setting the value to 0 */
+  color: var(--heading-color);
+}
+
+.list--inline .list__item {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.list--tick {
+  list-style-image: url(/icons/tick.svg); /* This property is used to provide an image/icon for the list style instead of bullet points etc.  */
+  padding-left: 3rem;
+}
+
+.list--tick .list__item {
+  /* If we remove .list--tick this will apply this padding to all list items we only want to apply it to list items inside the block with the ticks which is .list--tick */
+  padding-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .list--tick .list__item {
+    padding-left: 0;
   }
 }
