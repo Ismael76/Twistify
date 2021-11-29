@@ -1,0 +1,1 @@
+This folder consists of all the components that make up our webpage, these are simply templates which are used in the main index.html file.
