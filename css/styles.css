@@ -124,6 +124,7 @@ a {
 
 .badge--small {
   font-size: 1.6rem;
+  padding: 0.5rem 1.5rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -150,7 +151,7 @@ a {
 }
 
 .list--tick {
-  list-style-image: url(/icons/tick.svg); /* This property is used to provide an image/icon for the list style instead of bullet points etc.  */
+  list-style-image: url(/images/tick.svg); /* This property is used to provide an image/icon for the list style instead of bullet points etc.  */
   padding-left: 3rem;
 }
 
@@ -285,12 +286,109 @@ a {
 }
 
 .input-group .btn {
-  /* Buttons inside input-group */
+  /* Buttons inside input-group container */
   margin: 4px;
 }
 
 @media screen and (min-width: 1024px) {
   .input {
     font-size: 1.5rem;
+  }
+}
+
+/* Cards */
+
+.card {
+  border-radius: 7px;
+  box-shadow: 0 0 20px 10px #f3f3f3;
+  overflow: hidden;
+  /* We have overflow because in .card--primary we are setting a background colour for the entire <header> element which is inside the <div> with .card class, 
+  therefore since we applied a border-radius to this div element, the header element background will be outside of the div elements border which has been
+  changed via the border-radius property applied of 7px, it will look like the border radius is not applied, to fix this we must hide contents that go outside 
+  the border (in this case it is the primary background color set in .card--primary) by using overflow property for the parent in this case the <div>. 
+  
+  This content can be anything, for example if we had text that goes outside of the <div> with the class .card then the border-radius will not apply rather
+  it will show the content going outside of the element. So we use overflow to hide the contents going outside of the <div> where the border-radius is 7px
+  thus showing the border-radius.*/
+}
+
+.card__header,
+.card__body {
+  padding: 2rem 3rem;
+  letter-spacing: 1px;
+}
+
+.card--primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.card--secondary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.card--secondary .badge--secondary {
+  background: #02cdf1;
+}
+
+/* Plans */
+.plan__name {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.plan__price {
+  font-size: 6rem;
+}
+
+.plan__billing-cycle {
+  font-size: 2.4rem;
+  font-weight: 300;
+  opacity: 0.8; /* Opacity property is the transparency of the element */
+  margin-right: 1rem;
+}
+
+.plan__description {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.plan--popular .card__header {
+  position: relative;
+  /* Parent element has to be non-static for absolute positioning to work */
+}
+
+.plan--popular .card__header::before {
+  /* We are nesting into the .card__header element and adding an element 'before' all the original content inside this element */
+  content: url(/images/popular.svg);
+  /* We can use content property with the url function to add images instead of using the <img> tag, we style the image in the same css rule the image is
+  supplied */
+  width: 40px;
+  display: inline-block;
+  /* We set the display to inline-block so the width property is applied as images are inline element by default so we cannot apply width or height
+  properties to inline elements */
+  position: absolute;
+  top: -6px;
+  right: 5%;
+  /* We used % as the unit as regardless of the size of the card we want this badge to be 5% from the right of the card */
+}
+
+@media screen and (min-width: 1024px) {
+  .plan__name {
+    font: size 1.4rem;
+  }
+  .plan__price {
+    font-size: 5rem;
+  }
+  .plan__billing-cycle {
+    font-size: 1.6rem;
+  }
+  .plan__description {
+    font-size: 1.7rem;
   }
 }
