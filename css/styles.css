@@ -392,3 +392,25 @@ a {
     font-size: 1.7rem;
   }
 }
+
+/* Media Objects */
+
+/* Media objects are basically when you have an image/icon on the left with a heading/title and some information next to the image/icon to its right. */
+
+.media {
+  display: flex;
+}
+
+.media__image {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.media__body {
+  padding: 0 2rem;
+}
+
+.media__title {
+  margin: 0;
+  /* All heading elements have a margin applied by default */
+}
