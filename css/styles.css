@@ -176,10 +176,6 @@ a {
   height: 40px;
 }
 
-.icon--primary {
-  fill: var(--primary-color);
-}
-
 .icon-container {
   background: #f4f9f8;
   width: 64px;
@@ -188,6 +184,23 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 100%;
+}
+
+.icon--primary {
+  fill: var(--primary-color);
+}
+
+.icon--white {
+  fill: white;
+}
+
+.icon--accent-color {
+  background: var(--color-accent);
+}
+
+.icon--small {
+  width: 30px;
+  height: 30px;
 }
 
 /* Buttons */
@@ -465,5 +478,62 @@ a {
 
   .quote__org {
     font-size: 1.6rem;
+  }
+}
+
+/* Grid Layout */
+
+.grid {
+  display: grid;
+}
+
+@media screen and (min-width: 768px) {
+  /* 768px is the general breakpoint for tablets/ipads etc. An Ipad has a screen width of 768px. */
+  .grid--cols-2 {
+    /* This class only exists for screens greater than 768px */
+    grid-template-columns: 1fr 1fr;
+    /* 1fr 1fr means, we are going to take all the available space, since we only have two columns we divide this available space by 2 and give each
+    column 1 slice. */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid--cols-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Testimonials */
+
+.testimonial {
+  padding: 3rem;
+}
+
+.testimonial__image {
+  position: relative;
+}
+
+.testimonial__image > img {
+  /* We are using a relational selector to select the first 'img' element inside of the container with the class .testimonial__image */
+  width: 100%;
+  /* We gave the image a width of 100% so that it always takes 100% of the container/column it is in even when we resize the screen since by default images
+  are inline elements so they do not take all the width of the container unlike block level elements. */
+}
+
+.testimonial__image > .icon-container {
+  /* We could also do .testimonial__image .icon container */
+  position: absolute;
+  top: 3rem;
+  right: -30px;
+}
+
+@media screen and (min-width: 768px) {
+  .testimonial .quote {
+    font-size: 2.4rem;
+    margin-left: 6rem;
+  }
+
+  .testimonial .quote__author {
+    font-size: 2.4rem;
   }
 }
