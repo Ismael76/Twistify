@@ -720,6 +720,10 @@ a {
   border-radius: 5px;
 }
 
+.nav__logo {
+  width: 25rem;
+}
+
 @media screen and (min-width: 768px) {
   .nav__toggler {
     display: none;
