@@ -630,3 +630,48 @@ a {
   it will fill up as much vertical space if more content is added to 100% height of the web page, else it will fill up as much as its content.*/
   opacity: 1;
 }
+
+/* Blocks */
+
+/* We can clip a section and change its shape using https://bennettfeely.com/ to get the clip-path property */
+
+.block {
+  /* If we define a variable outside of the .root: the variable can only be used inside of the element it is defined in and all its children*/
+  --padding-vertical: 6rem;
+  padding: var(--padding-vertical) 2rem;
+}
+
+.block__heading {
+  margin-top: 0;
+}
+
+.block--dark {
+  background: black;
+  color: #7b858b;
+}
+
+.block--dark .block__heading {
+  color: white;
+}
+
+.block--skew-right {
+  /* We use the calc function to perform calculations, as we can see we are adding 4rems to the variable --padding-vertical */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+}
+
+.block--skew-left {
+  /* We use the calc function to perform calculations, as we can see we are adding 4rems to the variable --padding-vertical */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+}
+
+.block__header {
+  text-align: center;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  /* auto value evenly distributes the margin to both sides */
+}

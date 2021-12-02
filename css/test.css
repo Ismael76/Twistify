@@ -1,10 +1,13 @@
 .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 30vh;
+  min-height: 50vh;
 }
 
-.first-column {
-  align-self: center;
-  justify-self: center;
+.box1 {
+  background: chartreuse;
+  min-height: 60vh;
+}
+
+.box2 {
+  background: cornflowerblue;
+  min-height: 10vh;
 }
