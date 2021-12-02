@@ -1,0 +1,15 @@
+<!-- Building a collapisble component, when we click it expands to show more content. It consists of a header and some content. When header is clicked
+    it will open and show the content. The header consists of a heading and an icon to indicate to the user to click on it to expand.-->
+<div class="collapsible collapsible--expanded">
+  <!-- Collapsible expanded, this class we want to use to show the collapsible__content when the icon is clicked -->
+  <header class="collapsible__header">
+    <h2 class="collapsible__heading">Item 1</h2>
+    <i class="fas fa-chevron-circle-down fa-2x collapsible__chevron"></i>
+  </header>
+  <div class="collapsible__content">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ab similique
+    eum voluptatibus, dolore itaque!
+  </div>
+</div>
+<script src="js/main.js"></script>
+<!-- We add JS code at the end as we want our page to render first, then download and execute the JS code -->

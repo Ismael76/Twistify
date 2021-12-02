@@ -585,3 +585,48 @@ a {
     margin: 0 2rem;
   }
 }
+
+/* Collapsibles */
+
+.collapsible__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collapsible__heading {
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+.collapsible__chevron {
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
+}
+
+.collapsible__content {
+  /* display: none; */
+  /* Setting display to 'none' hides the content, however since we want to add a transition to the content we cant do this if we use the display property
+  instead we will set the height of this container to 0, which will then mean the content will overflow so we use the overflow property to hide it */
+  max-height: 0;
+  overflow: hidden;
+  /* We used max-height instead of height property, this is explained below. */
+  opacity: 0;
+  transition: max-height 0.5s, opacity 0.5s;
+}
+
+.collapsible--expanded .collapsible__chevron {
+  transform: rotate(0);
+  /* When content is expanded we want the chevron to be rotated back to normal so it faces down */
+}
+
+.collapsible--expanded .collapsible__content {
+  /* display: block; */
+  /* When content is expanded we want to show the content, as we did not use display property to hide the content we do not use display property to show it.
+  Instead we increase the height of the container which we set to 0 so it can show the content inside the container not overflowed out of it. */
+  max-height: 100vh;
+  /* Since we used the 'max-height' property instead of 'height' we are saying the container 'can be 100vh' instead of 'it is 100vh'. Therefore
+  instead of this container taking up the entire height of the viewport which is not necessary as it will not have that much content, it will take up as
+  much vertical space needed for its content however it can fill up content to 100% of the height of the web page as we have set it to this if necessary, 
+  it will fill up as much vertical space if more content is added to 100% height of the web page, else it will fill up as much as its content.*/
+  opacity: 1;
+}
