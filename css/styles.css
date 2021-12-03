@@ -29,6 +29,13 @@ body {
   line-height: 1.5;
 }
 
+::selection {
+  background: var(--primary-color);
+  color: white;
+  /* This property applies styles to whatever element is selected/highlighted. For example if we highlight a paragraph element on the webpage, 
+  the styles we apply here will be applied to the highlighted paragraph element. */
+}
+
 h1,
 h2,
 h3 {
@@ -42,11 +49,12 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 4rem;
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 3rem;
+  font-weight: 700;
 }
 
 p {
@@ -144,7 +152,6 @@ a {
 .list {
   list-style: none;
   padding-left: 0; /* All browsers apply a default padding to the left, we remove it by setting the value to 0 */
-  color: var(--heading-color);
 }
 
 .list--inline .list__item {
@@ -155,6 +162,7 @@ a {
 .list--tick {
   list-style-image: url(/images/tick.svg); /* This property is used to provide an image/icon for the list style instead of bullet points etc.  */
   padding-left: 3rem;
+  color: var(--heading-color);
 }
 
 .list--tick .list__item {
@@ -453,6 +461,7 @@ a {
 
 .media__title {
   margin: 0;
+  color: white;
   /* All heading elements have a margin applied by default */
 }
 
@@ -592,7 +601,7 @@ a {
   text-align: center;
 }
 @media screen and (min-width: 768px) {
-  .grid--cols-2 {
+  .callout .grid--cols-2 {
     grid-template-columns: 1fr auto;
     /* When screen is larger than 768px we don't want the button to take up an equal amount of space on the screen as the content column 
     therefore we set the column size to auto which will provide enough space just to contain the button element, the remaining space will be 
@@ -627,7 +636,7 @@ a {
 
 .collapsible__content {
   /* display: none; */
-  /* Setting display to 'none' hides the content, however since we want to add a transition to the content we cant do this if we use the display property
+  /* Setting display to 'none' hides the content, however since we want to add a transition to the content we cant use this method
   instead we will set the height of this container to 0, which will then mean the content will overflow so we use the overflow property to hide it */
   max-height: 0;
   overflow: hidden;
@@ -644,7 +653,8 @@ a {
 .collapsible--expanded .collapsible__content {
   /* display: block; */
   /* When content is expanded we want to show the content, as we did not use display property to hide the content we do not use display property to show it.
-  Instead we increase the height of the container which we set to 0 so it can show the content inside the container not overflowed out of it. */
+  Instead we increase the height of the container which we set to 0 so it can show the content inside the container which currently is
+   overflowed out of it. */
   max-height: 100vh;
   /* Since we used the 'max-height' property instead of 'height' we are saying the container 'can be 100vh' instead of 'it is 100vh'. Therefore
   instead of this container taking up the entire height of the viewport which is not necessary as it will not have that much content, it will take up as
@@ -677,14 +687,13 @@ a {
 }
 
 .block--skew-right {
-  /* We use the calc function to perform calculations, as we can see we are adding 4rems to the variable --padding-vertical */
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
 .block--skew-left {
-  /* We use the calc function to perform calculations, as we can see we are adding 4rems to the variable --padding-vertical */
-  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  /* We use the calc function to perform calculations, below we are performing an addition calculation where we are adding 4rems to the variable --padding-vertical */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
@@ -764,7 +773,7 @@ a {
   }
 }
 
-/* Hero/Banner */
+/* Hero Banner */
 
 .hero__tagline {
   font-size: 2rem;
@@ -812,12 +821,12 @@ a {
 @media screen and (min-width: 768px) {
   .block-domain__prices {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    /* auto-fit value creates as many rows or columns needed to fit the content so we do not need to hardcode the number of rows
-    However we cannot set the size of the rows to only a fractional unit this is because there is no "additional space" as auto-fit
+    /* auto-fit value creates as many rows or columns needed to fit the content so we do not need to hardcode the number of rows or columns,
+    however we cannot set the size of the rows to only a fractional unit this is because there is no "additional space" as auto-fit
     only provides as much space to fit the content, therefore we must use the minmax() function.
-    This function takes a min and a max value for the size of the rows, within this minmax function we provide a minimum value and then
-    we can provide a maximum value using a fractional unit. The first value determines the minimum size of the rows, 
-    if there is any space left over then the fractional unit which is used as the max value will be distributed to each column/row equally. */
+    This function takes a min and a max value for the size of the rows/columns, within this minmax function we provide a minimum value and then
+    we can provide a maximum value using a fractional unit if we wanted. The first value determines the minimum size of the rows/columns, 
+    if there is any space left over then we can use the fractional unit as the max value, this will distribute the remaining space to each column/row equally. */
   }
 }
 
@@ -849,4 +858,35 @@ a {
 
 .feature:first-of-type {
   margin-top: 6rem;
+}
+
+/* Showcase Block */
+
+.block-showcase__image {
+  width: 100%;
+}
+
+.showcase__item {
+  margin-top: 2rem;
+}
+
+.media__body > p {
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .block-showcase .grid {
+    grid-template-columns: 50% 50%;
+  }
+  /* When we used 1fr 1fr before to define the size of the columns, this takes the entire width and cuts it into 2 slices and allocates 1 slice to each
+  column. However this does not mean both columns will be the same size. If an element such as an image is larger than the elements in the second column
+  the first column will take up more space to fit the element. If we wanted to make sure the columns are of equal size we would use the % unit. This is 
+  setting the size of the both columns to 50% instead of determining the size by the available space which the fractional unit does.*/
+
+  .block-showcase__image {
+    width: auto;
+    max-width: 700px;
+    justify-self: end;
+    /* By setting width to auto the image will display at its actual size, it will no longer be responsive if the screen size changes */
+  }
 }
