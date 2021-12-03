@@ -302,7 +302,7 @@ a {
   /* Inside of input-group we don't want our input to have a border so we do nesting to select input elements inside the input-group container */
   border: 0;
   flex-grow: 1;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 2rem;
 }
 
 .input-group .btn {
@@ -764,5 +764,38 @@ a {
 
   .hero {
     padding-top: 0;
+  }
+}
+
+/* Domain Block */
+
+.block-domain .input-group {
+  box-shadow: 0 0 30px 20px #e6ebee;
+  border: 0;
+  margin: 4rem auto;
+  max-width: 670px;
+}
+
+.block-domain__prices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 6rem);
+  font-size: 2rem;
+  font-weight: 600;
+  justify-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+  /* When setting auto to a margin it will equally distribute the margin on both sides. In the above we are setting auto margin for the horizontal axis. */
+}
+
+@media screen and (min-width: 768px) {
+  .block-domain__prices {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    /* auto-fit value creates as many rows or columns needed to fit the content so we do not need to hardcode the number of rows
+    However we cannot set the size of the rows to only a fractional unit this is because there is no "additional space" as auto-fit
+    only provides as much space to fit the content, therefore we must use the minmax() function.
+    This function takes a min and a max value for the size of the rows, within this minmax function we provide a minimum value and then
+    we can provide a maximum value using a fractional unit. The first value determines the minimum size of the rows, 
+    if there is any space left over then the fractional unit which is used as the max value will be distributed to each column/row equally. */
   }
 }
