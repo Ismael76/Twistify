@@ -627,6 +627,7 @@ a {
 .collapsible__heading {
   margin-top: 0;
   font-size: 3rem;
+  color: white;
 }
 
 .collapsible__chevron {
@@ -889,5 +890,86 @@ a {
     max-width: 700px;
     justify-self: end;
     /* By setting width to auto the image will display at its actual size, it will no longer be responsive if the screen size changes */
+  }
+}
+
+/* Footer */
+
+.footer {
+  background: #232323;
+}
+
+.footer__section {
+  padding: 2rem;
+  border-bottom: 1px solid #393939;
+}
+
+.footer__heading {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footer__brand {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.footer__brand img {
+  width: 100%;
+  max-width: 230px;
+}
+
+.footer__copyright {
+  font-size: 2.1rem;
+  color: white;
+  opacity: 0.3;
+}
+
+.footer a {
+  color: #777;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.footer .list {
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__sections {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  .footer .collapsible__chevron {
+    display: none;
+  }
+
+  .footer .collapsible__content {
+    max-height: 100vh;
+    opacity: 1;
+  }
+
+  .footer__brand {
+    order: -1;
+    /* We can change the layout of grid cells using the 'order' property. */
+  }
+
+  .footer__copyright {
+    font-size: 1.5rem;
+  }
+
+  .footer__brand {
+    margin-top: 1rem;
+  }
+
+  .footer__section {
+    border: 0;
+  }
+
+  .footer__heading {
+    font-size: 1.6rem;
   }
 }
