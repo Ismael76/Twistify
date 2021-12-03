@@ -352,7 +352,15 @@ a {
   background: #02cdf1;
 }
 
+.card--primary .badge--primary {
+  background: #126de4;
+}
+
 /* Plans */
+.plan {
+  transition: transform 0.2s ease-out;
+}
+
 .plan__name {
   margin: 0;
   font-size: 2.4rem;
@@ -378,8 +386,13 @@ a {
   display: block;
 }
 
+.plan--popular {
+  transform: scale(1.1);
+}
+
 .plan--popular .card__header {
   position: relative;
+  background: var(--primary-color);
   /* Parent element has to be non-static for absolute positioning to work */
 }
 
@@ -396,6 +409,14 @@ a {
   top: -6px;
   right: 5%;
   /* We used % as the unit as regardless of the size of the card we want this badge to be 5% from the right of the card */
+}
+
+.plan:hover {
+  transform: scale(1.05);
+}
+
+.plan--popular:hover {
+  transform: scale(1.15);
 }
 
 @media screen and (min-width: 1024px) {
@@ -798,4 +819,15 @@ a {
     we can provide a maximum value using a fractional unit. The first value determines the minimum size of the rows, 
     if there is any space left over then the fractional unit which is used as the max value will be distributed to each column/row equally. */
   }
+}
+
+/* Plan Block */
+
+.block-plans .grid {
+  gap: 8rem 4rem;
+}
+
+.block-plans .card {
+  max-width: 500px;
+  margin: 0 auto;
 }
