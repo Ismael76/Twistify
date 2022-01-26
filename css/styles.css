@@ -224,7 +224,7 @@ a {
   font-weight: 600;
   margin: 1rem 0;
   outline: 0;
-  padding: 2rem 3rem;
+  padding: 2rem 4vw;
   text-transform: uppercase;
   white-space: nowrap;
   text-align: center;
@@ -311,6 +311,7 @@ a {
   border: 0;
   flex-grow: 1;
   padding: 1.5rem 2rem;
+  width: 0;
 }
 
 .input-group .btn {
@@ -489,6 +490,7 @@ a {
   font-weight: 700;
   font-style: normal;
   margin-bottom: 0;
+  color: var(--heading-color);
 }
 
 .quote__org {
@@ -547,6 +549,7 @@ a {
 
 .testimonial__image {
   position: relative;
+  margin: 0 3rem;
 }
 
 .testimonial__image > img {
@@ -560,7 +563,7 @@ a {
   /* We could also do .testimonial__image .icon container */
   position: absolute;
   top: 3rem;
-  right: -30px;
+  right: -18px;
 }
 
 @media screen and (min-width: 768px) {
@@ -600,6 +603,11 @@ a {
 .callout__content {
   text-align: center;
 }
+
+.callout-signup {
+  transform: translateY(5rem);
+}
+
 @media screen and (min-width: 768px) {
   .callout .grid--cols-2 {
     grid-template-columns: 1fr auto;
@@ -610,7 +618,9 @@ a {
 
   .callout__content {
     text-align: left;
+    font-size: 2rem;
   }
+
   .callout__button {
     justify-self: start;
     margin: 0 2rem;
@@ -810,7 +820,8 @@ a {
 
 .block-domain__prices {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  color: var(--heading-color);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 6rem);
   font-size: 2rem;
   font-weight: 600;
